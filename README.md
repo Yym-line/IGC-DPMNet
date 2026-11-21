@@ -8,7 +8,7 @@
 
 
 
-- Checkpoint: [github.com/Yym-line/IGC-DPMNet/ckpt](https://github.com/Yym-line/IGC-DPMNet/ckpt)
+- Checkpoint: [github.com/Yym-line/IGC-DPMNet/ckpt](https://github.com/Yym-line/IGC-DPMNet/tree/main/ckpt)
 - Demo: [IGC-DPMNet demo](https://yym-line.github.io/IGC-DPMNet/)
 
 ## Inference
