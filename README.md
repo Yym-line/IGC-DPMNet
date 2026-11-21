@@ -11,6 +11,16 @@
 - Checkpoint: [github.com/Yym-line/IGC-DPMNet/ckpt](https://github.com/Yym-line/IGC-DPMNet/tree/main/ckpt)
 - Demo: [IGC-DPMNet demo](https://yym-line.github.io/IGC-DPMNet/)
 
+## Train
+
+```bash
+./train.sh
+```
+
+The complete code for model training will be released once the paper is accepted.
+
+
+
 ## Inference
 
 Python 3.10:
@@ -96,6 +106,12 @@ You will need to download the original audio files yourself.
 | WSJ0-2mix | 20.0    | 20.6 | 3.80 |
 | WHAM! | 15.6    | 15.8 | 2.80 |
 | WHAMR! | 15.4    | 14.0 | 2.54 |
+
+
+
+**Yiming Yang**, Haixin Guan, Shuang Wei, Yanhua Long, “ IGC-DPMNet: Interactive Guidance Calibration and Interleaved
+
+Dual-Path Modeling for Efficient Target Speaker Extraction”, Submitted to **TASLP**, 2026.
 
 
 
