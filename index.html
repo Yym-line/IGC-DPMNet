@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Demo Page - IGC-DPMNet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { 
+            padding: 20px 0; 
+            background-color: #f8f9fa; 
+        }et
+        /* 核心修改：让容器撑满全屏并增加左右内边距 */
+        .container-fluid { 
+            padding-left: 5%; 
+            padding-right: 5%; 
+            background: white; 
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        /* 音频播放器样式 */
+        audio { 
+            width: 100%; 
+            height: 35px; 
+            margin-top: 10px; 
+        } 
+        /* 标题居中 */
+        h1 { 
+            text-align: center; 
+            margin-bottom: 40px; 
+            font-weight: bold;
+        }
+        /* Introduction 部分样式 */
+        .intro-section { 
+            margin-bottom: 30px; 
+            padding-left: 15px; 
+            border-left: 6px solid #007bff; 
+        }
+        .intro-title { 
+            font-weight: bold; /* 加粗 */
+            font-style: normal; /* 不斜体 */
+            font-size: 1.3rem; 
+            display: block; 
+            margin-bottom: 8px; /* 确保标题和内容之间有间距 */
+        }
+        .intro-content { 
+            color: #444; 
+            line-height: 1.6;
+        }
+        /* 图片样式 */
+        .audio-img { 
+            width: 100%; 
+            max-width: 400px; /* 限制图片不至于大得离谱 */
+            height: auto; 
+            border-radius: 4px; 
+            border: 1px solid #eee; 
+        }
+        /* 表格居中对齐 */
+        th { 
+            background-color: #fcfcfc !important;
+            text-align: center; 
+        }
+        td { 
+            vertical-align: middle !important; 
+            text-align: center; 
+            padding: 20px !important;
+        }
+        .cell-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <h1>Demos for IGC-DPMNet</h1>
+    
+    <div class="intro-section">
+        <span class="intro-title">Introduction</span>
+        <div class="intro-content">
+        <p>Target speaker extraction (TSE) aims to extract
+the speech of a designated target speaker from a noisy or
+multi-speaker mixture. Despite recent advances in extraction
+performance, state-of-the-art TSE models often incur substantial
+model sizes and computational costs, posing significant challenges
+for resource-constrained scenarios. In this study, we propose
+IGC-DPMNet, a lightweight TSE network designed to achieve a
+favorable trade-off between extraction performance and compu-
+tational complexity. Specifically, we introduce a Two-stage Target
+Conditioning framework incorporating an Interactive Guidance
+Calibration (IGC) module, which leverages global enrollment
+representations to dynamically calibrate frame-level interactive
+guidance for accurate target speaker conditioning. Within the
+TSE backbone, we develop an Interleaved Dual-Path Modeling
+Separator (InterDPMS). By alternately integrating BLSTM-
+based dual-path blocks and Mamba-based dual-path modeling
+blocks, InterDPMS exploits complementary heterogeneous long-
+range sequence modeling to maximize representational capacity
+while substantially reducing model complexity and computational
+cost. Furthermore, a Fine-Grained TF Refinement (FG-TFR)
+block is embedded into a lightweight decoder to refine local
+time-frequency representations and suppress feature artifacts for
+high-fidelity speech reconstruction. Extensive experiments across
+diverse datasets and acoustic conditions, including Libri2Mix,
+WSJ0-2Mix, WHAM!, and WHAMR!, demonstrate the robust
+generalization and effectiveness of the proposed approach. No-
+tably, IGC-DPMNet achieves competitive performance with only
+1.99M parameters and 13.45G MACs, highlighting its strong
+potential for effective and computationally efficient TSE tasks.</p>
+
+        <p>The work presented on this page is derived from a paper, which has been submitted to TASLP, titled <strong>'IGC-DPMNet: Interactive Guidance Calibration and Interleaved
+Dual-Path Modeling for Efficient Target Speaker Extraction'</strong>.</p>
+
+        <p>The following content on this page is the <strong>demo audio</strong> of the IGC-DPMNet experiment. We present several audio demos selected from the <strong>Libri2Mix, WSJ0-2Mix, WHAM!, WHAMR!</strong>.</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="table-responsive">
+        <table class="table table-bordered mt-4">
+            <thead>
+                <tr>  
+                    <th style="width: 30%;">Condition</th>
+                    <th style="width: 35%;">Same Gender</th>
+                    <th style="width: 35%;">Different Gender</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="fw-bold">2-speaker</td>
+                    <td>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            mixture
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/8k_mixclean/mix/1.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            estimate
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/8k_mixclean/est/1.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            target
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/8k_mixclean/ref/1.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+
+                        <div class="cell-content">
+                            <img src="sample/8k_mixclean/1.png" alt="Spectrogram" class="audio-img">
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            mixture
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/8k_mixclean/mix/2.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            estimate
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/8k_mixclean/est/2.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            target
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/8k_mixclean/ref/2.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+
+                        <div class="cell-content">
+                            <img src="sample/8k_mixclean/2.png" alt="Spectrogram" class="audio-img">
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="fw-bold">2-speaker+noise</td>
+                    <td>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            mixture
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/8k_mixboth/mix/1.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            estimate
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/8k_mixboth/est/1.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            target
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/8k_mixboth/ref/1.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+
+                        <div class="cell-content">
+                            <img src="sample/8k_mixboth/1.png" alt="Spectrogram" class="audio-img">
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            mixture
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/8k_mixboth/mix/2.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            estimate
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/8k_mixboth/est/2.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            target
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/8k_mixboth/ref/2.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+
+                        <div class="cell-content">
+                            <img src="sample/8k_mixboth/2.png" alt="Spectrogram" class="audio-img">
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="fw-bold">2-speaker+noise+reverb</td>
+                    <td>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            mixture
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/whamr/mix/1.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            estimate
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/whamr/est/1.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            target
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/whamr/ref/1.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+
+                        <div class="cell-content">
+                            <img src="sample/whamr/1.png" alt="Spectrogram" class="audio-img">
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            mixture
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/whamr/mix/2.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            estimate
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/whamr/est/2.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        <div class="me-3 fw-bold" style="width: 80px; text-align: left;">
+                            target
+                        </div>
+                        <div class="cell-content">
+                            <audio controls>
+                                <source src="sample/whamr/ref/2.wav" type="audio/wav">
+                                Your browser does not support audio.
+                            </audio>
+                        </div>
+                        
+                        <div class="cell-content">
+                            <img src="sample/whamr/2.png" alt="Spectrogram" class="audio-img">
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

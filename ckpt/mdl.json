@@ -1,0 +1,11 @@
+{
+    "sr": 8000,
+    "win_size": 256,
+    "fft_len": 256,
+    "enc_dim": 256,
+    "bottleneck_dim": 64,
+    "hidden_dim": 128,
+    "nhead": 4,
+    "num_layer": 6,
+    "win_type": "hann"
+}
