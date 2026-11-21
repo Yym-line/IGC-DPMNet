@@ -109,6 +109,8 @@ You will need to download the original audio files yourself.
 
 
 
+## Paper
+
 **Yiming Yang**, Haixin Guan, Shuang Wei, Yanhua Long, “ IGC-DPMNet: Interactive Guidance Calibration and Interleaved
 
 Dual-Path Modeling for Efficient Target Speaker Extraction”, Submitted to **TASLP**, 2026.
