@@ -115,11 +115,11 @@ If you find this repository useful or use the code in your research, please cite
 
 ```bibtex
 @article{yang2026igcdpmnet,
-title = {IGC-DPMNet: Interactive Guidance Calibration and Interleaved Dual-Path Modeling for Efficient 		Target Speaker Extraction},
-author = {Yang, Yiming and Guan, Haixin and Wei, Shuang and Long, Yanhua},
-journal = {IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP)},
-year = {2026},
-note = {Submitted}
+  title = {IGC-DPMNet: Interactive Guidance Calibration and Interleaved Dual-Path Modeling for Efficient 		Target Speaker Extraction},
+  author = {Yang, Yiming and Guan, Haixin and Wei, Shuang and Long, Yanhua},
+  journal = {IEEE/ACM Transactions on Audio, Speech, and Language Processing (TASLP)},
+  year = {2026},
+  note = {Submitted}
 }
 ```
 
